@@ -1,5 +1,5 @@
 
-export default {
+module.exports = {
   server: {
     port: 80
   },
