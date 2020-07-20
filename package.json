@@ -12,6 +12,7 @@
   "dependencies": {
     "@mdi/js": "^5.3.45",
     "axios": "^0.19.2",
+    "cross-env": "^7.0.2",
     "dotenv": "^8.2.0",
     "fs": "0.0.1-security",
     "nuxt": "^2.13.0"
