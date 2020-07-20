@@ -1,6 +1,7 @@
 module.exports = {
   server: {
     port: process.env.PORT || 80, // default: 3000
+    host: '0.0.0.0' // default: localhost
   },
   env: {
     baseUrl: process.env.BASE_URL || '//localhost:3000/'
@@ -43,10 +44,6 @@ module.exports = {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Charmonman&family=Darker+Grotesque:wght@300;400;500;600;700&display=swap'
       },
-      {
-        rel: 'stylesheet',
-        href: 'https://cdn.jsdelivr.net/npm/@mdi/font@5.x/css/materialdesignicons.min.css'
-      }
     ]
   },
   /*
