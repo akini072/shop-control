@@ -1,7 +1,6 @@
-
 module.exports = {
   server: {
-    port: 80
+    port: process.env.PORT || 80, // default: 3000
   },
   env: {
     baseUrl: process.env.BASE_URL || '//localhost:3000/'
