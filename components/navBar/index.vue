@@ -12,7 +12,7 @@
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
         <v-list-item-group active-class="deep-purple--text text--accent-4">
-          <v-list-item to="/">
+          <v-list-item to="/home">
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
@@ -54,6 +54,12 @@
               <v-icon>mdi-package-variant</v-icon>
             </v-list-item-icon>
             <v-list-item-title>Estoque</v-list-item-title>
+          </v-list-item>
+          <v-list-item to="/">
+            <v-list-item-icon>
+              <v-icon>mdi-arrow-left-bold-outline</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Sair</v-list-item-title>
           </v-list-item>
         </v-list-item-group>
       </v-list>

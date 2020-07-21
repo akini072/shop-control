@@ -1,15 +1,34 @@
 <template>
   <v-container>
     <v-card>
-      <v-card-title>
-        <v-spacer style="width:650px"></v-spacer>
-        <v-text-field
-          v-model="search"
-          append-icon="mdi-magnify"
-          label="Search"
-          single-line
-          hide-details
-        ></v-text-field>
+      <v-card-title class="mx-5">
+        <v-row align="center">
+          <div>de</div>
+          <v-col lg="2">
+            <input-date
+              :date="filter.dateStart"
+              @date="val => [filter.dateStart = val, formatQuery(filter)]"
+            />
+          </v-col>
+          <div>até</div>
+
+          <v-col lg="2">
+            <input-date
+              :date="filter.dateEnd"
+              @date="val => [filter.dateEnd = val, formatQuery(filter)]"
+            />
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-col lg="4">
+            <v-text-field
+              v-model="search"
+              append-icon="mdi-magnify"
+              label="Search"
+              single-line
+              hide-details
+            ></v-text-field>
+          </v-col>
+        </v-row>
       </v-card-title>
       <v-data-table
         :search="search"
