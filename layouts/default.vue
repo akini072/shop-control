@@ -33,7 +33,7 @@ h2 {
 }
 
 .v-data-table > .v-data-table__wrapper > table > tbody > tr > td {
-  font-size: 23px;
+  font-size: 23px !important;
 }
 
 * {
@@ -44,11 +44,11 @@ h2 {
 .v-btn__content,
 .v-label,
 .v-list--dense .v-list-item .v-list-item__title {
-  font-size: 20px;
+  font-size: 20px !important;
 }
 
 .v-dialog .v-card .v-card__title {
-  font-size: 28px;
+  font-size: 28px !important;
   font-weight: 600;
 }
 </style>
