@@ -9,12 +9,14 @@ import formatDate from '../../mixins/formatDate'
 
 import modalConfirm from '../modalConfirm';
 import cButton from '../button';
+import inputDate from '../inputDate';
 
 export default {
   mixins: [formatValue, formatDate],
   components: {
     modalConfirm,
-    cButton
+    cButton,
+    inputDate
   },
   props: {
     finishOrder: {
@@ -25,6 +27,10 @@ export default {
   data() {
     return {
       search: '',
+      filter: {
+        dateStart: '',
+        dateEnd: ''
+      },
       idOrderCurrent: '',
       confirmDelete: false,
       confirmFinish: false,
@@ -60,10 +66,11 @@ export default {
     }
   },
   methods: {
-    async loadOrders() {
-      this.orderData = []
+    async loadOrders(query = '') {
       try {
-        await loadingOrder(this.finishOrder).then(res => {
+        this.orderData = []
+
+        await loadingOrder(this.finishOrder, query).then(res => {
           res.data.order.map((item, i) => {
             this.orderData.push({
               _id: item._id,
@@ -121,7 +128,14 @@ export default {
       if (now > deliveryDate) return 'error'
       if (days > 3) return 'success'
       if (days > 0) return 'warning'
+    },
 
+    formatQuery(filter) {
+      if (filter.dateEnd && filter.dateStart) {
+        const query = `dateStart=${filter.dateStart}&&dateEnd=${filter.dateEnd}`
+
+        this.loadOrders(query)
+      }
     }
   },
   mounted() {
