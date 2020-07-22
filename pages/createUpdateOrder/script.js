@@ -102,7 +102,9 @@ export default {
         //add in pedido
         return this.order.items.push({
           _id: this.stock[orderInput.product]._id,
-          product: this.stock[orderInput.product].product,
+          description: this.stock[orderInput.product].description,
+          color: this.stock[orderInput.product].color,
+          brand: this.stock[orderInput.product].brand,
           value: this.stock[orderInput.product].value,
           amount: orderInput.amount
         })

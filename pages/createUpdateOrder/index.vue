@@ -68,7 +68,9 @@
           <v-list-item style="background-color:#f5f5f5">
             <v-list-item-content>
               <v-list-item-title class="d-flex flex-nowrap">
-                <div class="ml-4">Pedido: {{ product.product }}</div>
+                <div
+                  class="ml-4"
+                >Pedido: {{ product.description +' - '+product.color + ' - ' + product.brand }}</div>
                 <div class="ml-auto">Quantidade: {{ product.amount }}</div>
               </v-list-item-title>
             </v-list-item-content>

@@ -82,7 +82,7 @@ export default {
               totalValue: this.formatValue(item.items.reduce((acc, {
                 value,
                 amount
-              }) => acc + (amount * value) + item.deliveryFee, 0)),
+              }) => acc + (amount * value), 0) + item.deliveryFee),
               date: item.deliveryDate,
               ...item
             });
