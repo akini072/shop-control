@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "cross-env BASE_URL=//makeup-4k-api.herokuapp.com/ NODE_ENV=production node server/index.js",
+    "start": "cross-env NODE_ENV=production node server/index.js",
     "generate": "nuxt generate",
     "postinstall": "npm run build"
   },
