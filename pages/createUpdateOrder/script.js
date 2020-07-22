@@ -55,7 +55,7 @@ export default {
           try {
             return await createOrder(this.order).then(() => {
               this.$router.push({
-                path: "/"
+                name: "order"
               })
             })
           } catch (error) {
@@ -125,7 +125,7 @@ export default {
       this.stock.map((product, i) => {
         this.products.push({
           value: i,
-          text: product.product,
+          text: product.description + ' - ' + product.color + ' - ' + product.brand,
         })
       })
     }

@@ -28,17 +28,28 @@ export default {
       stockCurrent: {},
       stockData: [],
       headersTable: [{
-        text: 'Produto',
-        value: 'product'
-      }, {
-        text: 'Preço',
-        value: 'value'
-      }, {
-        text: 'Quantidade',
-        value: 'amount'
-      }, {
-        value: 'edit_delete'
-      }],
+          text: 'Descrição',
+          value: 'description'
+        }, {
+          text: 'Marca',
+          value: 'brand'
+        }, {
+          text: 'Cor',
+          value: 'color'
+        }, {
+          text: 'Preço',
+          value: 'value'
+        }, {
+          text: 'Quantidade',
+          value: 'amount'
+        },
+        {
+          text: 'Total',
+          value: 'total'
+        }, {
+          value: 'edit_delete'
+        }
+      ],
       dialogEditCreate: false,
       confirmDelete: false
     }
@@ -46,7 +57,15 @@ export default {
   methods: {
     async loadStock() {
       try {
-        await loadingStock().then(res => this.stockData = res.data.stocks)
+        this.stockData = []
+        await loadingStock().then(res => {
+          res.data.stocks.map(stock => {
+            this.stockData.push({
+              ...stock,
+              total: stock.amount * stock.value
+            })
+          })
+        })
       } catch (error) {
         throw error
       }

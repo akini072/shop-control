@@ -21,6 +21,7 @@
         mobile-breakpoint="0"
       >
         <template v-slot:item.value="{item}">{{ formatValue(item.value) }}</template>
+        <template v-slot:item.total="{item}">{{ formatValue(item.total) }}</template>
         <template v-slot:item.edit_delete="{item}">
           <v-icon @click="confirmDelete = true, stockCurrent = item">mdi-delete</v-icon>
           <v-icon
@@ -29,13 +30,17 @@
         </template>
         <template v-slot:body.append>
           <tr style="background-color:#f5f5f5">
+            <td></td>
+            <td></td>
+            <td></td>
             <td class="font-weight-medium">Total</td>
             <td
               class="success--text font-weight-medium"
-            >{{ formatValue(stockData ? stockData.reduce((acc, { value }) => acc + value, 0) : '')}}</td>
+            >{{ stockData ? stockData.reduce((acc, { amount }) => acc + amount, 0) : ''}}</td>
             <td
               class="success--text font-weight-medium"
-            >{{ stockData ? stockData.reduce((acc, { amount }) => acc + amount, 0) : ''}}</td>
+            >{{ formatValue(stockData ? stockData.reduce((acc, { total }) => acc + total, 0) : '')}}</td>
+
             <td></td>
           </tr>
         </template>
@@ -57,7 +62,13 @@
         >{{ stockCurrent.action === 'create' ? 'Registrar Produto' : 'Editar Produto'}}</v-card-title>
         <v-card-text>
           <v-form ref="formStock">
-            <v-text-field label="Produto" v-model="stockCurrent.product" :rules="requiredRules" />
+            <v-text-field
+              label="Descrição"
+              v-model="stockCurrent.description"
+              :rules="requiredRules"
+            />
+            <v-text-field label="Marca" v-model="stockCurrent.brand" />
+            <v-text-field label="Cor" v-model="stockCurrent.color" />
             <v-text-field
               type="number"
               prefix="R$"

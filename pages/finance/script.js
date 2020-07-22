@@ -17,6 +17,7 @@ export default {
   },
   data() {
     return {
+      now: new Date(),
       dialogDatePayment: false,
       orderCurrent: {
         _id: '',
