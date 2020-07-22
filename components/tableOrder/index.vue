@@ -62,7 +62,7 @@
                   <tbody>
                     <tr v-for="(item) in item.items" :key="item._id">
                       <td>{{ item.amount }}</td>
-                      <td>{{ item.product }}</td>
+                      <td>{{ item.description + ' - ' + item.color + ' - ' + item.brand }}</td>
                       <td>{{ formatValue(item.value * item.amount) }}</td>
                     </tr>
                     <tr v-if="item.streetAddress">
