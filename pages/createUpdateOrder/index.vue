@@ -86,7 +86,7 @@
           text="Voltar"
           :border="true"
           colorText="black--text"
-          @clicked="$router.push({ path: '/' })"
+          @clicked="$router.push({ name:'order' })"
         />
         <c-button @clicked="submit" text="Salvar" />
       </v-row>

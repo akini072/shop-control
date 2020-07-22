@@ -7,7 +7,6 @@
       </v-toolbar-title>
 
       <v-spacer />
-
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" absolute temporary>
       <v-list nav dense>
@@ -16,9 +15,14 @@
             <v-list-item-icon>
               <v-icon>mdi-home</v-icon>
             </v-list-item-icon>
-            <v-list-item-title>Home</v-list-item-title>
+            <v-list-item-title>Pedidos</v-list-item-title>
           </v-list-item>
-
+          <v-list-item to="/stock">
+            <v-list-item-icon>
+              <v-icon>mdi-package-variant</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>Estoque</v-list-item-title>
+          </v-list-item>
           <v-list-item to="/profit">
             <v-list-item-icon>
               <v-icon>mdi-chart-line</v-icon>
@@ -49,12 +53,7 @@
             </v-list-item-icon>
             <v-list-item-title>Pedidos Finalizados</v-list-item-title>
           </v-list-item>
-          <v-list-item to="/stock">
-            <v-list-item-icon>
-              <v-icon>mdi-package-variant</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>Estoque</v-list-item-title>
-          </v-list-item>
+
           <v-list-item to="/">
             <v-list-item-icon>
               <v-icon>mdi-arrow-left-bold-outline</v-icon>

@@ -28,7 +28,7 @@ export default {
           }) => this.authenticateUser(data))
           .then(() =>
             this.$router.push({
-              name: "home"
+              name: "order"
             })
           ).catch(() => this.msg = "Email ou senha inválidos")
       }
