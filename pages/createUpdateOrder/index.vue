@@ -53,7 +53,7 @@
         <v-col cols="12" lg="6">
           <v-autocomplete
             v-model="orderInput.product"
-            :items="products"
+            :items="productsItems"
             :loading="isLoading"
             :search-input.sync="searchProduct"
             color="white"

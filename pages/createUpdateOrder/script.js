@@ -30,6 +30,7 @@ export default {
       msgAlert: '',
       stock: [],
       products: [],
+      productsItems: [],
       action: '',
       requiredRules: [
         v => !!v || 'Preenchimento obrigatório'
@@ -141,22 +142,20 @@ export default {
           brand: product.brand
         })
       })
-    },
-    // totalOrder() {
-    //   const deliveryFee = 
-    //   const totalOrder = 
-
-    //   return this.total = this.formatValue(parseFloat(order.deliveryFee) + (order.items.length > 0 ? order.items.map(({
-    //     amount,
-    //     value
-    //   }) => amount * value) : 0))
-    // }
+      this.productsItems = this.products
+    }
   },
   watch: {
     searchProduct(val) {
-      return this.products.filter(({
-        text
-      }) => text.indexOf(val) !== 1)
+      this.productsItems = []
+      this.products.map((item) => {
+        if (item.text.toUpperCase().indexOf(val.toUpperCase()) !== -1) {
+
+          this.productsItems.push(item)
+        }
+      })
+
+      return this.productsItems
     }
   },
   mounted() {
