@@ -62,8 +62,19 @@
                   <tbody>
                     <tr v-for="(item) in item.items" :key="item._id">
                       <td>{{ item.amount }}</td>
-                      <td>{{ item.description + ' - ' + item.color + ' - ' + item.brand }}</td>
+                      <td class="d-flex align-center">
+                        <div>{{ item.description }}</div>
+                        <div class="ml-2" v-show="item.color">{{ ' - ' + item.color }}</div>
+                        <div class="ml-2" v-show="item.brand">{{ ' - ' + item.brand }}</div>
+                      </td>
                       <td>{{ formatValue(item.value * item.amount) }}</td>
+                    </tr>
+                    <tr v-if="item.deliveryFee">
+                      <td>
+                        <v-icon>mdi-truck-delivery-outline</v-icon>
+                      </td>
+                      <td>Frete</td>
+                      <td>{{ formatValue(item.deliveryFee) }}</td>
                     </tr>
                     <tr v-if="item.streetAddress">
                       <td>
