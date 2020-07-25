@@ -2,6 +2,8 @@ import inputDate from '../../components/inputDate'
 import cButton from '../../components/button'
 import modalAlert from '../../components/modalConfirm'
 
+import formatValue from '../../mixins/formatValue'
+
 import {
   createOrder,
   loadingOrderId,
@@ -18,8 +20,12 @@ export default {
     modalAlert,
     cButton
   },
+  mixins: [formatValue],
   data() {
     return {
+      total: 0,
+      searchProduct: null,
+      isLoading: false,
       dialogAlert: false,
       msgAlert: '',
       stock: [],
@@ -66,7 +72,7 @@ export default {
         try {
           return await updateOrder(this.order, 'updateOrder').then(() => {
             this.$router.push({
-              path: "/"
+              name: 'order'
             })
           })
         } catch (error) {
@@ -86,10 +92,10 @@ export default {
     addOrderItem(orderInput) {
       const exists = this.order.items.findIndex(({
         _id
-      }) => _id === this.stock[orderInput.product]._id)
+      }) => _id === orderInput.product._id)
 
-      if (orderInput.product >= 0) {
-        if (this.stock[orderInput.product].amount < orderInput.amount) {
+      if (orderInput.product.text) {
+        if (orderInput.product.amount < orderInput.amount) {
           this.msgAlert = 'A quantidade selecionada não está disponível em estoque'
           return this.dialogAlert = true
         }
@@ -101,11 +107,11 @@ export default {
 
         //add in pedido
         return this.order.items.push({
-          _id: this.stock[orderInput.product]._id,
-          description: this.stock[orderInput.product].description,
-          color: this.stock[orderInput.product].color,
-          brand: this.stock[orderInput.product].brand,
-          value: this.stock[orderInput.product].value,
+          _id: orderInput.product._id,
+          description: orderInput.product.description,
+          color: orderInput.product.color,
+          brand: orderInput.product.brand,
+          value: orderInput.product.value,
           amount: orderInput.amount
         })
       }
@@ -126,10 +132,31 @@ export default {
     formatOptions() {
       this.stock.map((product, i) => {
         this.products.push({
-          value: i,
-          text: product.description + ' - ' + product.color + ' - ' + product.brand,
+          amount: product.amount,
+          value: product.value,
+          _id: product._id,
+          text: product.description + (product.color ? ' - ' + product.color : '') + (product.brand ? ' - ' + product.brand : ''),
+          description: product.description,
+          color: product.color,
+          brand: product.brand
         })
       })
+    },
+    // totalOrder() {
+    //   const deliveryFee = 
+    //   const totalOrder = 
+
+    //   return this.total = this.formatValue(parseFloat(order.deliveryFee) + (order.items.length > 0 ? order.items.map(({
+    //     amount,
+    //     value
+    //   }) => amount * value) : 0))
+    // }
+  },
+  watch: {
+    searchProduct(val) {
+      return this.products.filter(({
+        text
+      }) => text.indexOf(val) !== 1)
     }
   },
   mounted() {

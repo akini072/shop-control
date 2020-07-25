@@ -51,7 +51,19 @@
       </v-row>
       <v-row class="align-baseline">
         <v-col cols="12" lg="6">
-          <v-select :items="products" label="Produto" dense v-model="orderInput.product" />
+          <v-autocomplete
+            v-model="orderInput.product"
+            :items="products"
+            :loading="isLoading"
+            :search-input.sync="searchProduct"
+            color="white"
+            hide-no-data
+            hide-selected
+            item-text="text"
+            item-value="value"
+            label="Produto"
+            return-object
+          ></v-autocomplete>
         </v-col>
         <v-col cols="8" lg="3">
           <v-text-field type="number" label="Quantidade" v-model="orderInput.amount" dense />
@@ -70,8 +82,9 @@
               <v-list-item-title class="d-flex flex-nowrap">
                 <div
                   class="ml-4"
-                >Pedido: {{ product.description +' - '+product.color + ' - ' + product.brand }}</div>
+                >Pedido: {{ product.description + (product.color ? ' - ' + product.color : '') + (product.brand ? ' - ' + product.brand : '') }}</div>
                 <div class="ml-auto">Quantidade: {{ product.amount }}</div>
+                <div class="ml-auto">Valor: {{ formatValue(product.value) }}</div>
               </v-list-item-title>
             </v-list-item-content>
           </v-list-item>
@@ -83,6 +96,12 @@
         </v-col>
       </v-row>
       <v-row class="mt-5 mb-5" justify="end">
+        <div class="text-subtitle-1 text-uppercase mr-5 pr-5">
+          Total: {{ formatValue(order.items.reduce((acc, {
+          value,
+          amount
+          }) => acc + (amount * value), 0) + parseFloat(order.deliveryFee)) }}
+        </div>
         <c-button
           class="mr-4"
           text="Voltar"
