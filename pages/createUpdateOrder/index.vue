@@ -49,7 +49,7 @@
           />
         </v-col>
       </v-row>
-      <v-row class="align-baseline">{{productsItems}}
+      <v-row class="align-baseline">
         <v-col cols="12" lg="6">
           <v-autocomplete
             v-model="orderInput.product"
