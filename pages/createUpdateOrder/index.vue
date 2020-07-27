@@ -49,18 +49,17 @@
           />
         </v-col>
       </v-row>
-      <v-row class="align-baseline">
+      <v-row class="align-baseline">{{productsItems}}
         <v-col cols="12" lg="6">
           <v-autocomplete
             v-model="orderInput.product"
             :items="productsItems"
-            :loading="isLoading"
             :search-input.sync="searchProduct"
             color="white"
             hide-no-data
             hide-selected
             item-text="text"
-            item-value="value"
+            item-value="_id"
             label="Produto"
             return-object
           ></v-autocomplete>
