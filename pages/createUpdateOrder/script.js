@@ -150,10 +150,11 @@ export default {
       this.productsItems = []
       this.products.map((item) => {
         if (item.text.toUpperCase().indexOf(val.toUpperCase()) !== -1) {
-
+          console.log(item.description + item.color + item.brand)
           this.productsItems.push(item)
         }
       })
+      console.log(this.productsItems)
 
       return this.productsItems
     }
