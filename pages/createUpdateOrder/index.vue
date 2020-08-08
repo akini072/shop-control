@@ -48,7 +48,7 @@
             dense
           />
         </v-col>
-        <v-col cols="12" lg="3" v-show=" /cartão/i.test(order.payment)">
+        <v-col cols="12" lg="3" v-show="/cartão/i.test(order.payment) || /link/i.test(order.payment)">
           <v-text-field
             v-model="order.rateCard"
             label="Taxa cartão"
