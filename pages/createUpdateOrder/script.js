@@ -49,6 +49,8 @@ export default {
         deliveryType: '',
         deliveryFee: 0,
         payment: '',
+        rateCard: '',
+        discount: '',
         items: []
       },
       deliveryForm: ['Retirar', 'Entregar'],
