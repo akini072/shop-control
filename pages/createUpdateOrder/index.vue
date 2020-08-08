@@ -48,6 +48,24 @@
             dense
           />
         </v-col>
+        <v-col cols="12" lg="3" v-show=" /cartão/i.test(order.payment)">
+          <v-text-field
+            v-model="order.rateCard"
+            label="Taxa cartão"
+            suffix="%"
+            type="number"
+            dense
+          />
+        </v-col>
+        <v-col cols="12" lg="3">
+          <v-text-field
+            v-model="order.discount"
+            label="Valor de Desconto"
+            prefix="R$"
+            type="number"
+            dense
+          />
+        </v-col>
       </v-row>
       <v-row class="align-baseline">
         <v-col cols="12" lg="6">
@@ -96,10 +114,10 @@
       </v-row>
       <v-row class="mt-5 mb-5" justify="end">
         <div class="text-subtitle-1 text-uppercase mr-5 pr-5">
-          Total: {{ formatValue(order.items.reduce((acc, {
+          Total: {{ formatValue((order.items.reduce((acc, {
           value,
           amount
-          }) => acc + (amount * value), 0) + parseFloat(order.deliveryFee)) }}
+          }) => acc + (amount * value), 0) + parseFloat(order.deliveryFee) - order.discount) * ((100 - order.rateCard) / 100)) }}
         </div>
         <c-button
           class="mr-4"

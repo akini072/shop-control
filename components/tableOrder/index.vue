@@ -90,6 +90,20 @@
                       <td>{{ item.payment }}</td>
                       <td />
                     </tr>
+                    <tr v-if="item.rateCard">
+                      <td>
+                        <v-icon>mdi-percent</v-icon>
+                      </td>
+                      <td>Taxa Cartão</td>
+                      <td>{{ item.rateCard.toFixed(2) }} %</td>
+                    </tr>
+                    <tr v-if="item.discount">
+                      <td>
+                        <v-icon>mdi-window-minimize</v-icon>
+                      </td>
+                      <td>Desconto</td>
+                      <td>{{ formatValue(item.discount) }}</td>
+                    </tr>
                     <tr>
                       <td>
                         <v-icon>mdi-phone</v-icon>

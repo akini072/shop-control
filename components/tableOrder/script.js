@@ -79,10 +79,10 @@ export default {
               qtd: item.items.reduce((acc, {
                 amount
               }) => acc + parseFloat(amount), 0),
-              totalValue: this.formatValue(item.items.reduce((acc, {
+              totalValue: this.formatValue((item.items.reduce((acc, {
                 value,
                 amount
-              }) => acc + (amount * value), 0) + item.deliveryFee),
+              }) => acc + (amount * value), 0) + parseFloat(item.deliveryFee) - item.discount) * ((100 - item.rateCard) / 100)),
               date: item.deliveryDate,
               ...item
             });
