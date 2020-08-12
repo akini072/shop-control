@@ -21,7 +21,7 @@
 
       <template v-slot:item.payment="{ item }">
         <v-btn
-          @click="!item.paymentStatus ? (dialogDatePayment = true, orderCurrent = item) : (item.paymentStatus = false, takePaymentStatus(item))"
+          @click="!item.paymentStatus ? (dialogDatePayment = true, orderCurrent = item, orderCurrent.datePayment = now) : (item.paymentStatus = false, takePaymentStatus(item))"
           class="text-capitalize ma-3"
           :color="item.paymentStatus ? 'error' : 'success'"
         >{{ item.paymentStatus ? 'Cancelar pagamento' : 'Confirmar pagamento'}}</v-btn>
