@@ -17,7 +17,7 @@ export default {
   },
   data() {
     return {
-      now: new Date(),
+      now: new Date().toISOString(),
       dialogDatePayment: false,
       orderCurrent: {
         _id: '',
@@ -55,7 +55,7 @@ export default {
           paymentStatus: item.paymentStatus,
           datePayment: item.paymentStatus ? item.datePayment : ''
         }
-
+        console.log(item)
         await updateOrder(data, 'payment')
         this.dialogDatePayment = false
         this.loadOrders()
