@@ -69,6 +69,14 @@
                       </td>
                       <td>{{ formatValue(item.value * item.amount) }}</td>
                     </tr>
+                    <tr v-show="item.gift">
+                      <td><v-icon>mdi-gift</v-icon></td>
+                      <td class="d-flex align-center">
+                        <div>{{ item.gift.description }}</div>
+                        <div class="ml-2" v-show="item.gift.color">{{ ' - ' + item.gift.color }}</div>
+                        <div class="ml-2" v-show="item.gift.brand">{{ ' - ' + item.gift.brand }}</div>
+                      </td>
+                    </tr>
                     <tr v-if="item.deliveryFee">
                       <td>
                         <v-icon>mdi-truck-delivery-outline</v-icon>
