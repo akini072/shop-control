@@ -70,6 +70,22 @@
       <v-row class="align-baseline">
         <v-col cols="12" lg="6">
           <v-autocomplete
+            v-model="order.gift"
+            :items="productsItems"
+            :search-input.sync="searchGift"
+            color="white"
+            hide-no-data
+            hide-selected
+            item-text="text"
+            item-value="_id"
+            label="Brinde"
+            return-object
+          ><v-icon slot="append" @click="() => order.gift = {}">mdi-close</v-icon></v-autocomplete>
+        </v-col>
+      </v-row>
+      <v-row class="align-baseline">
+        <v-col cols="12" lg="6">
+          <v-autocomplete
             v-model="orderInput.product"
             :items="productsItems"
             :search-input.sync="searchProduct"

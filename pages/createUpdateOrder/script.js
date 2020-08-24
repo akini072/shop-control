@@ -25,6 +25,7 @@ export default {
     return {
       total: 0,
       searchProduct: null,
+      searchGift: null,
       isLoading: false,
       dialogAlert: false,
       msgAlert: '',
@@ -51,7 +52,8 @@ export default {
         payment: '',
         rateCard: '',
         discount: '',
-        items: []
+        items: [],
+        gift:{}
       },
       deliveryForm: ['Retirar', 'Entregar'],
       paymentForm: ['Transferência', 'Boleto', 'Cartão de crédito', 'Cartão de débito', 'Link crédito', 'Dinheiro']
@@ -149,16 +151,27 @@ export default {
   },
   watch: {
     searchProduct(val) {
-      this.productsItems = []
+      const productsItems = []
       this.products.map((item) => {
         if (item.text.toUpperCase().indexOf(val.toUpperCase()) !== -1) {
-          console.log(item.description + item.color + item.brand)
-          this.productsItems.push(item)
+          productsItems.push(item)
         }
       })
-      console.log(this.productsItems)
 
-      return this.productsItems
+      return productsItems
+    },
+
+    searchGift(val) {
+      const productsItems = []
+      if(val){
+        this.products.map((item) => {
+          if (item.text.toUpperCase().indexOf(val.toUpperCase()) !== -1) {
+            productsItems.push(item)
+          }
+        })
+      }
+
+      return productsItems
     }
   },
   mounted() {
