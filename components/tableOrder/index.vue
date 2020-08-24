@@ -69,7 +69,7 @@
                       </td>
                       <td>{{ formatValue(item.value * item.amount) }}</td>
                     </tr>
-                    <tr v-show="item.gift">
+                    <tr v-if="item.gift">
                       <td><v-icon>mdi-gift</v-icon></td>
                       <td class="d-flex align-center">
                         <div>{{ item.gift.description }}</div>
