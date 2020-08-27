@@ -64,19 +64,24 @@ export default {
             items,
             deliveryFee,
             paymentStatus,
+            discount,
+            rateCard,
             datePayment
-          }) => acc + parseFloat(`${ paymentStatus && new Date() >= new Date(datePayment) ? items.reduce((acc, {
+          }) =>  parseFloat(`${ paymentStatus && new Date() >= new Date(datePayment) ? acc + (items.reduce((acc, {
             amount,
             value
-          }) => acc + parseFloat(amount * value), 0) + deliveryFee : 0 }`), 0)
-
+          }) => acc + parseFloat(amount * value), 0) + parseFloat(deliveryFee) - discount) * ((100-rateCard)/100) : acc + 0 }`), 0)
+          
           this.totalRecipe = res.data.order.reduce((acc, {
             items,
-            deliveryFee
-          }) => acc + parseFloat(items.reduce((acc, {
+            deliveryFee,
+            discount,
+            rateCard
+          }) =>  parseFloat(acc + (items.reduce((acc, {
             amount,
             value
-          }) => acc + parseFloat(amount) * value, 0) + deliveryFee), 0)
+          }) => acc + parseFloat(amount * value), 0) + parseFloat(deliveryFee) - discount) * ((100-rateCard)/100)), 0)
+          
         })
       } catch (error) {
         throw error
