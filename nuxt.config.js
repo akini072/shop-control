@@ -5,7 +5,7 @@ module.exports = {
     host: '0.0.0.0' // default: localhost
   },
   env: {
-    baseUrl: process.env.BASE_URL || '//localhost:3000/'
+    baseUrl: process.env.BASE_URL || '//localhost:3001/'
   },
   /*
    ** Nuxt rendering mode

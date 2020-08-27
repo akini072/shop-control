@@ -69,10 +69,10 @@ export default {
         await loadingOrderAll().then(res => {
           res.data.order.map((item, i) => {
             this.financeData.push({
-              total: this.formatValue(item.items.reduce((acc, {
+              total: this.formatValue((item.items.reduce((acc, {
                 value,
                 amount
-              }) => acc + (amount * value), 0) + item.deliveryFee),
+              }) => acc + (amount * value), 0) + parseFloat(item.deliveryFee) - item.discount) * ((100 - item.rateCard) / 100)),
               date: this.formatDate(item.deliveryDate),
               ...item,
               datePayment: item.datePayment
