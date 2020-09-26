@@ -72,7 +72,7 @@ export default {
               total: this.formatValue((item.items.reduce((acc, {
                 value,
                 amount
-              }) => acc + (amount * value), 0) + parseFloat(item.deliveryFee) - item.discount) * ((100 - item.rateCard) / 100)),
+              }) => acc + (amount * value), 0) + parseFloat(item.deliveryFee || 0) - (item.discount || 0 )) * ((100 - (item.rateCard|| 0)) / 100)),
               date: this.formatDate(item.deliveryDate),
               ...item,
               datePayment: item.datePayment
