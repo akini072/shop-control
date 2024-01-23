@@ -31,22 +31,22 @@ export default {
 
       this.tableFinanceProfit = [
         {
-          description: "Financeiro",
+          description: "Financial",
           total: this.totalFinance
         },
         {
-          description: "Custos",
+          description: "Costs",
           total: this.totalCost
         }
       ];
 
       this.tableRecipeProfit = [
         {
-          description: "Receita",
+          description: "Income",
           total: this.totalRecipe
         },
         {
-          description: "Custos",
+          description: "Costs",
           total: this.totalCost
         }
       ];

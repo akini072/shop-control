@@ -17,7 +17,7 @@
           class="white--text pb-1"
           color="#E34E4E"
           @click="() => { $emit('confirm'), modalConfirm = false }"
-        >Confirmar</v-btn>
+        >Confirm</v-btn>
       </v-card-actions>
     </v-card>
   </v-dialog>

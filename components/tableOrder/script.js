@@ -35,23 +35,23 @@ export default {
       confirmDelete: false,
       confirmFinish: false,
       headersTable: [{
-          text: "Código",
+          text: "Code",
           value: "id"
         },
         {
-          text: "Cliente",
+          text: "Customer",
           value: "client"
         },
         {
-          text: "Quantidade",
+          text: "Quantity",
           value: "qtd"
         },
         {
-          text: "Total",
+          text: "Sum",
           value: "totalValue"
         },
         {
-          text: "Entrega",
+          text: "Delivery",
           value: "date"
         }, {
           sortable: false,
@@ -72,6 +72,7 @@ export default {
 
         await loadingOrder(this.finishOrder, query).then(res => {
           res.data.order.map((item, i) => {
+            console.log(item)
             this.orderData.push({
               _id: item._id,
               id: i + 1,

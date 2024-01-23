@@ -3,14 +3,14 @@
     <v-card>
       <v-card-title class="mx-5">
         <v-row align="center">
-          <div>de</div>
+          <div>from</div>
           <v-col lg="2">
             <input-date
               :date="filter.dateStart"
               @date="val => [filter.dateStart = val, formatQuery(filter)]"
             />
           </v-col>
-          <div>até</div>
+          <div>to</div>
 
           <v-col lg="2">
             <input-date
@@ -81,7 +81,7 @@
                       <td>
                         <v-icon>mdi-truck-delivery-outline</v-icon>
                       </td>
-                      <td>Frete</td>
+                      <td>Shipping</td>
                       <td>{{ formatValue(item.deliveryFee) }}</td>
                     </tr>
                     <tr v-if="item.streetAddress">
@@ -102,14 +102,14 @@
                       <td>
                         <v-icon>mdi-percent</v-icon>
                       </td>
-                      <td>Taxa Cartão</td>
+                      <td>Card fee</td>
                       <td>{{ item.rateCard.toFixed(2) }} %</td>
                     </tr>
                     <tr v-if="item.discount">
                       <td>
                         <v-icon>mdi-window-minimize</v-icon>
                       </td>
-                      <td>Desconto</td>
+                      <td>Discount</td>
                       <td>{{ formatValue(item.discount) }}</td>
                     </tr>
                     <tr>
@@ -128,26 +128,26 @@
             <c-button
               class="ml-auto"
               @clicked="confirmFinish = true, idOrderCurrent = item._id"
-              text="Finalizar pedido"
+              text="Complete order"
             />
           </td>
         </template>
       </v-data-table>
-      <!-- modal confirmar excluir -->
+      <!-- modal Confirm excluir -->
       <modal-confirm
         :modalConfirm="confirmDelete"
         @value="val => confirmDelete = val"
         @confirm="deleteOrderEvent(idOrderCurrent)"
         icon="mdi-close-circle-outline"
-        msg="Tem certeza que deseja excluir o pedido?"
+        msg="Are you sure you want to delete order?"
       />
-      <!-- modal confirmar finalizar pedido -->
+      <!-- modal Confirm Complete order -->
       <modal-confirm
         :modalConfirm="confirmFinish"
         @value="val => confirmFinish = val"
         @confirm="finishOrderEvent(idOrderCurrent)"
         icon="mdi-alert-circle-outline"
-        msg="Tem certeza que deseja finalizar o pedido?"
+        msg="Are you sure you want complete the order?"
       />
     </v-card>
   </v-container>

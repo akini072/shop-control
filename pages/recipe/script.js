@@ -15,22 +15,22 @@ export default {
                     text: 'Data',
                     value: 'date'
                 }, {
-                    text: 'Cliente',
+                    text: 'Customer',
                     value: 'client'
                 }, {
-                    text: 'Pagamento',
+                    text: 'Payment',
                     value: 'payment'
                 }, {
-                    text: 'Quantidade',
+                    text: 'Quantity',
                     value: 'qtd'
                 }, {
                     text: 'SubTotal',
                     value: 'subTotal'
                 }, {
-                    text: 'Frete',
+                    text: 'Shipping',
                     value: 'fee'
                 }, {
-                    text: 'Total',
+                    text: 'Sum',
                     value: 'total'
                 }
             ]
