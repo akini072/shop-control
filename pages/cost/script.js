@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       requiredRules: [
-        v => !!v || 'Preenchimento obrigatório'
+        v => !!v || 'Requerid filling'
       ],
       costCurrent: {},
       costData: [],
@@ -30,10 +30,10 @@ export default {
         text: 'Data',
         value: 'date'
       }, {
-        text: 'Descrição',
+        text: 'Description',
         value: 'description'
       }, {
-        text: 'Total',
+        text: 'Sum',
         value: 'total'
       }, {
         value: 'edit_delete'

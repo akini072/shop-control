@@ -26,15 +26,15 @@ export default {
       financeData: [],
       headersTable: [
         {
-          text: "Data Pedido",
+          text: "Order Date",
           value: "date"
         },
         {
-          text: "Data Pagamento",
+          text: "Payment Date",
           value: "datePayment"
         },
         {
-          text: "Cliente",
+          text: "Customer",
           value: "client"
         },
         {
@@ -42,15 +42,15 @@ export default {
           value: "paymentStatus"
         },
         {
-          text: "Pagamento",
+          text: "Payment",
           value: "payment"
         },
         {
-          text: "Valor pago",
+          text: "Amount paid",
           value: "amountPaid"
         },
         {
-          text: "Valor total",
+          text: "Total",
           value: "total"
         },
         {
@@ -66,10 +66,10 @@ export default {
       if (!item.paymentStatus) {
         this.dialogDatePayment = true;
         this.orderCurrent = item;
-        this.orderCurrent.datePayment = now;
+        this.orderCurrent.datePayment = this.now;
       } else {
         item.paymentStatus = false;
-        takePaymentStatus(item);
+        this.takePaymentStatus(item);
       }
     },
     async takePaymentStatus(item) {

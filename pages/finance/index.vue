@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row justify="space-between" class="mb-5 pb-5 ml-2 mr-2">
-      <h2>FINANCEIRO</h2>
+      <h2>FINANCIAL</h2>
     </v-row>
     <v-data-table
       :headers="headersTable"
@@ -23,7 +23,7 @@
       </template>
       <template v-slot:item.paymentStatus="{ item }">
         <div :class="item.paymentStatus ? 'success--text' : 'red--text'">
-          {{ item.paymentStatus ? "Recebido" : "Pendente" }}
+          {{ item.paymentStatus ? "Received" : "Pending" }}
         </div>
       </template>
 
@@ -33,7 +33,7 @@
           class="text-capitalize ma-3"
           :color="item.paymentStatus ? 'error' : 'success'"
           >{{
-            item.paymentStatus ? "Cancelar pagamento" : "Confirmar pagamento"
+            item.paymentStatus ? "Cancel Payment" : "Confirm Payment"
           }}</v-btn
         >
       </template>
@@ -62,9 +62,9 @@
                       `${
                         paymentStatus && new Date() >= new Date(datePayment)
                           ? total
-                              .replace("R$", "")
-                              .replace(/\./g, "")
-                              .replace(",", ".")
+                              .replace("$", "")
+                              .replace(/\,/g, "")
+                              .replace(".", ",")
                           : 0
                       }`
                     ),
@@ -81,7 +81,7 @@
       <v-card class="pa-5">
         <v-card-title>
           <v-row justify="space-between">
-            Data do pagamento
+            Payment date
             <v-icon @click="dialogDatePayment = false">mdi-close</v-icon>
           </v-row>
         </v-card-title>
@@ -89,7 +89,7 @@
           <input-date @date="(val) => (orderCurrent.datePayment = val)" />
         </v-card-text>
         <v-card-title>
-          <v-row justify="space-between"> Valor Pago </v-row>
+          <v-row justify="space-between"> Amount paid </v-row>
         </v-card-title>
         <v-card-text>
           <v-text-field type="number" v-model="orderCurrent.amountPaid" />
@@ -97,7 +97,7 @@
         <v-card-actions class="px-5">
           <v-spacer />
           <c-button
-            text="Confirmar"
+            text="Confirm"
             @clicked="
               (orderCurrent.paymentStatus = true),
                 takePaymentStatus(orderCurrent)

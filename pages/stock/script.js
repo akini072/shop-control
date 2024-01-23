@@ -23,28 +23,28 @@ export default {
     return {
       filterSearch: '',
       requiredRules: [
-        v => !!v || 'Preenchimento obrigatório'
+        v => !!v || 'Requerid filling'
       ],
       stockCurrent: {},
       stockData: [],
       headersTable: [{
-          text: 'Descrição',
+          text: 'Description',
           value: 'description'
         }, {
-          text: 'Marca',
+          text: 'Brand',
           value: 'brand'
         }, {
-          text: 'Cor',
+          text: 'Color',
           value: 'color'
         }, {
-          text: 'Preço',
+          text: 'Price',
           value: 'value'
         }, {
-          text: 'Quantidade',
+          text: 'Quantity',
           value: 'amount'
         },
         {
-          text: 'Total',
+          text: 'Sum',
           value: 'total'
         }, {
           value: 'edit_delete'

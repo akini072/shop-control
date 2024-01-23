@@ -1,9 +1,9 @@
 <template>
   <v-container>
     <v-row justify="space-between" class="mb-5 pb-5 ml-2 mr-2">
-      <h2>CUSTOS</h2>
+      <h2>COSTS</h2>
       <div @click="dialogEditCreate = true, costCurrent.action = 'create'">
-        <c-button text="Novo custo" />
+        <c-button text="New cost" />
       </div>
     </v-row>
     <v-data-table
@@ -25,7 +25,7 @@
       <template v-slot:body.append>
         <tr style="background-color:#f5f5f5">
           <td />
-          <td class="font-weight-medium">Total</td>
+          <td class="font-weight-medium">Sum</td>
           <td
             class="error--text font-weight-medium"
           >{{ formatValue(costData ? costData.reduce((acc, { total }) => acc + parseFloat(total), 0) : '')}}</td>
@@ -33,32 +33,32 @@
         </tr>
       </template>
     </v-data-table>
-    <!-- modal confirmar excluir -->
+    <!-- modal Confirm excluir -->
     <modal-confirm
       :modalConfirm="confirmDelete"
       @value="val => confirmDelete = val"
       @confirm="deleteCostEvent()"
       icon="mdi-close-circle-outline"
-      msg="Tem certeza que deseja excluir o custo?"
+      msg="Are you sure you want to delete cost?"
     />
     <!-- modal edit -->
     <v-dialog v-model="dialogEditCreate" max-width="400px">
       <v-card class="pb-4">
         <v-card-title
           class="mb-3"
-        >{{ costCurrent.action === 'create' ? 'Registrar custo' : 'Editar Custo'}}</v-card-title>
+        >{{ costCurrent.action === 'create' ? 'Register cost' : 'Edit Cost'}}</v-card-title>
         <v-card-text>
           <v-form ref="formCost">
             <input-date :date="costCurrent.date" @date="val => costCurrent.date = val" />
             <v-text-field
-              label="Descrição"
+              label="Description"
               v-model="costCurrent.description"
               :rules="requiredRules"
             />
             <v-text-field
               type="number"
               label
-              prefix="R$"
+              prefix="$"
               v-model="costCurrent.total"
               :rules="requiredRules"
             />
@@ -66,8 +66,8 @@
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="blue darken-1" text @click="dialogEditCreate = false">Cancelar</v-btn>
-          <v-btn color="green darken-1" text @click="() =>  saveCost() ">Salvar</v-btn>
+          <v-btn color="blue darken-1" text @click="dialogEditCreate = false">Cancel</v-btn>
+          <v-btn color="green darken-1" text @click="() =>  saveCost() ">Save</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

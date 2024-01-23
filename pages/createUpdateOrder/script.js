@@ -34,7 +34,7 @@ export default {
       productsItems: [],
       action: '',
       requiredRules: [
-        v => !!v || 'Preenchimento obrigatório'
+        v => !!v || 'Requerid filling'
       ],
       orderInput: {
         product: {},
@@ -55,8 +55,8 @@ export default {
         items: [],
         gift:{}
       },
-      deliveryForm: ['Retirar', 'Entregar'],
-      paymentForm: ['Transferência', 'Boleto', 'Cartão de crédito', 'Cartão de débito', 'Link crédito', 'Dinheiro']
+      deliveryForm: ['Pick-up', 'Delivery'],
+      paymentForm: ['Transfer', 'Bill', 'Card', 'Money']
     }
   },
   methods: {
@@ -101,16 +101,16 @@ export default {
 
       if (orderInput.product.text) {
         if (orderInput.product.amount < orderInput.amount) {
-          this.msgAlert = 'A quantidade selecionada não está disponível em estoque'
+          this.msgAlert = 'A quantidade selecionada não está disponível em stock'
           return this.dialogAlert = true
         }
 
         if (exists !== -1) {
-          this.msgAlert = 'O produto já foi selecionado, para alteral exclua e adicione novamente'
+          this.msgAlert = 'O product já foi selecionado, para alteral exclua e adicione novamente'
           return this.dialogAlert = true
         }
 
-        //add in pedido
+        //add in order
         return this.order.items.push({
           _id: orderInput.product._id,
           description: orderInput.product.description,

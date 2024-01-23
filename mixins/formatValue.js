@@ -1,9 +1,9 @@
 export default {
   methods: {
     formatValue(value) {
-      const formatter = new Intl.NumberFormat('pt-BR', {
+      const formatter = new Intl.NumberFormat('en-US', {
         style: 'currency',
-        currency: 'BRL',
+        currency: 'USD',
         minimumFractionDigits: 2
       })
 
