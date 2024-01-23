@@ -1,4 +1,5 @@
-![image](https://github.com/Biancanfc/makeup-4k-client/assets/52513973/39d23fbb-1eef-437c-942f-a7cbf7b20d7d)<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+![image](https://github.com/Biancanfc/makeup-4k-client/assets/52513973/39d23fbb-1eef-437c-942f-a7cbf7b20d7d)
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 <!--
 *** Thanks for checking out the Best-README-Template. If you have a suggestion
@@ -22,19 +23,9 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
-  <a href="https://github.com/biancanfc/shop-control-client">
-    ![image](https://github.com/Biancanfc/makeup-4k-client/assets/52513973/cdbd1b77-376c-4daf-a07b-4a9bf8c199c1)
-  </a>
-
-<h3 align="center">Makeup chat</h3>
 
   <p align="center">
     Introducing ShopControl, an intuitive system designed to streamline the comprehensive management of your store. With a user-friendly interface and extensive features, ShopControl provides complete control over costs, inventory,     sales, orders, and profits, delivering a simplified and effective management experience.
-    <br />
-    <a href="https://github.com/biancanfc/shop-control-client"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
 
   </p>
 </div>
@@ -68,12 +59,6 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 
@@ -117,6 +102,7 @@
 <!-- USAGE EXAMPLES -->
 ## Usage
 [Gravação de tela de 23-01-2024 11:54:08.webm](https://github.com/Biancanfc/makeup-4k-client/assets/52513973/bf2bff93-0c27-4df1-8929-e935c056fd53)
+
 [Gravação de tela de 23-01-2024 12:28:51.webm](https://github.com/Biancanfc/makeup-4k-client/assets/52513973/ebceb0ec-781c-46f3-a48b-a4f0ab5e0f9b)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
